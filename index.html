@@ -18,21 +18,30 @@
 </head>
 
 <body>
+  <!-- header part of the document  -->
   <header></header>
+
+
+  <!-- main part of the document  -->
+  
   <main class="main">
+  <!-- input section of the document  -->
     <div class="search-field">
-      <div class="search-box">
-        <input id="input-field" class="search-field" type="text" />
-        <button type="button" class="btn btn-primary search-button" data-toggle="button" aria-pressed="false"
+      <div class="search-box input-group">
+        <input id="input-field" class="search-field form-control" type="text" />
+        <span class="input-group-btn">
+          <button onclick="loadProducts();" type="button" class="btn btn-primary  search-button" data-toggle="button" aria-pressed="false"
           autocomplete="off" id="search-btn" onclick="loadProducts()">
           Search
         </button>
+        </span>
       </div>
     </div>
+
+  <!-- show data UI from api with card   -->
     <div class="row">
       <div class="col-md-9 col-lg-9 col-sm-7">
-        <div id="all-products" class="">
-          
+        <div id="all-products" class="">    
         </div>
       </div>
       <div class="col-md-3 col-lg-3 col-sm-5 cart-main">
@@ -50,7 +59,7 @@
             <tbody>
               <tr>
                 <th>Total Added-Products:</th>
-                <td>$ <span id="total-Products">0</span></td>
+                <td><span id="total-Products">0</span></td>
                 <td></td>
                 <td></td>
               </tr>
@@ -86,6 +95,8 @@
       </div>
     </div>
   </main>
+
+  <!-- footer part of the document  -->
   <footer></footer>
 
   <!-- add javascript  file  -->

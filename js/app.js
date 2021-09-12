@@ -1,12 +1,17 @@
+ /* ............call api and load data ...................*/ 
 const loadProducts = () => {
-  const url = `https://fakestoreapi.com/products`;
+  const getSearchField = document.getElementById('input-field');
+  const searchValue = getSearchField.value;
+  getSearchField.value = '';
+  const url = `https://fakestoreapi.com/${searchValue}`; //products
   fetch(url)
     .then((response) => response.json())
     .then((data) => showProducts(data));
 };
-loadProducts();
+// loadProducts();
 
-// show all product in UI 
+
+/* .............Show all Products in UI From api .................. */
 const showProducts = (products) => {
   const allProducts = products.map((pd) => pd);
   for (const product of allProducts) {
@@ -26,35 +31,46 @@ const showProducts = (products) => {
     document.getElementById("all-products").appendChild(div);
   }
 };
+
 let count = 0;
+
+
+/* .............add product quantity, product price, product tax, product total price.......... */
 const addToCart = (id, price) => {
   count = count + 1;
   updatePrice("price", price);
 
   updateTaxAndCharge();
+  updateTotal();
   document.getElementById("total-Products").innerText = count;
 };
 
+
+/* .................get innerText from every card price.................... */
 const getInputValue = (id) => {
   const element = document.getElementById(id).innerText;
   const converted = parseInt(element);
   return converted;
 };
 
-// main price update function
+
+/* ..............Update main price ............ */
 const updatePrice = (id, value) => {
   const convertedOldPrice = getInputValue(id);
-  const convertPrice = parseFloat(value);
-  const total = convertedOldPrice + convertPrice;
-  document.getElementById(id).innerText = Math.round(total);
+  const convertPrice = parseFloat(value).toFixed(2);
+  const convertedNumber = parseFloat(convertPrice);
+  const total = convertedOldPrice + convertedNumber;
+  document.getElementById(id).innerText = math.abs(total);
 };
 
-// set innerText function
+
+/* .......................Set innerText function..................... */
 const setInnerText = (id, value) => {
-  document.getElementById(id).innerText = Math.round(value);
+  document.getElementById(id).innerText = math.abs(value);
 };
 
-// update delivery charge and total Tax
+
+/* ...............Update delivery charge and total tax.................. */
 const updateTaxAndCharge = () => {
   const priceConverted = getInputValue("price");
   if (priceConverted > 200) {
@@ -71,7 +87,8 @@ const updateTaxAndCharge = () => {
   }
 };
 
-//grandTotal update function
+
+/* .............acount total update price value function................ */
 const updateTotal = () => {
   const grandTotal =
     getInputValue("price") + getInputValue("delivery-charge") +
