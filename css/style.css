@@ -31,11 +31,22 @@ body {
 #all-products {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
+  grid-gap: 10px;
   text-align: center;
-  width: 100%;
+  /* width: 100%; */
   margin: auto;
+  padding: 10px;
   align-items: center;
   justify-content: center;
+}
+
+.product {
+  flex: 33%;
+}
+
+.single-product-info {
+  background: rgba(0, 0, 0, 0.2);
+  padding: 5px;
 }
 
 .single-product {
