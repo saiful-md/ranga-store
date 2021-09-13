@@ -31,9 +31,9 @@
   <!-- input section of the document  -->
     <div class="search-field">
       <div class="search-box input-group">
-        <input id="input-field" class="search-field form-control" type="text" />
+        <input id="input-field" class="search-field form-control" type="text" placeholder="Please type 'Products'" />
         <span class="input-group-btn">
-          <button onclick="loadProducts();" type="button" class="btn btn-primary  search-button" data-toggle="button" aria-pressed="false"
+          <button onclick="loadProducts();" type="button" class="btn btn-danger  search-button" data-toggle="button" aria-pressed="false"
           autocomplete="off" id="search-btn" onclick="loadProducts()">
           Search
         </button>
@@ -44,12 +44,16 @@
   <!-- show data UI from api with card   -->
     <div class="row">
       <div class="col-md-9 col-lg-9 col-sm-7">
-        <div class="products-details"></div>
+        <!-- show details  -->
+        <div id="products-details" class="products-details"></div>
+        <!-- show card  -->
         <div id="all-products" class="">    
         </div>
       </div>
+
+      <!-- show account of all card  -->
       <div class="col-md-3 col-lg-3 col-sm-5 cart-main">
-        <div class="cart" id="my-cart">
+        <div class="cart " id="my-cart">
           <table class="table">
             <thead>
               <h1>My-Cart</h1>

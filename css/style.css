@@ -12,15 +12,12 @@ body {
   border-radius: 50px;
   padding: 5px;
   outline: none;
+  margin-bottom: 20px;
 }
 
-.search-field:hover {
-  outline: none;
-  border: none;
-}
 
 .search-box {
-  border: 1px solid rgb(3, 118, 211);
+  border: 1px solid tomato;
   width: 281px;
   border-radius: 5px;
   margin: auto;
@@ -35,7 +32,7 @@ body {
   grid-row-gap: 30px;
   grid-column-gap: 20px;
   text-align: center;
-  /* width: 100%; */
+  box-sizing: border-box;
   margin: auto;
   padding: 15px;
   align-items: center;
@@ -79,9 +76,25 @@ body {
   height: 150px;
 }
 
+.products-details {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* =======style details part of the document  =====*/
+.details-item {
+  margin: 20px 0;
+  padding: 15px;
+  width: 500px;
+  background: ivory;
+  border: 1px solid tomato;
+  border-radius: 5px;
+}
+
 .cart {
   width: 350px;
-  /* border: 1px solid green; */
+  background: ivory;
   padding: 10px;
   box-shadow: 10px 10px 20px gray;
   border-radius: 5px;
@@ -93,6 +106,8 @@ body {
   padding-right: 30px;
 }
 
+/*============== style responsive part of the document ========= */
+
 @media only screen and (max-width: 768px) {
   #all-products {
     display: grid;
@@ -101,7 +116,6 @@ body {
 
   .cart {
     width: 300px;
-    /* border: 1px solid green; */
     padding: 10px;
     box-shadow: 10px 10px 20px gray;
     border-radius: 5px;

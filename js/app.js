@@ -8,21 +8,21 @@ const loadProducts = () => {
     .then((response) => response.json())
     .then((data) => showProducts(data));
 };
-// loadProducts();
+
 
 
 /* .............Show all Products in UI From api .................. */
 const showProducts = (products) => {
   const allProducts = products.map((pd) => pd);
   for (const product of allProducts) {
-    // const image = product.images;
+
     const div = document.createElement("div");
     div.classList.add("product",);
     div.innerHTML = `
       <div class="single-product ">
 
         <div>
-          <img class="product-image" src=${product.image}></img>
+          <img class="product-image " src=${product.image}></img>
         </div>
         <div class="single-product-info">
           <h3>${product.title}</h3>
@@ -31,7 +31,7 @@ const showProducts = (products) => {
           <span class="my-style"><i class="fas fa-users"></i> ${product.rating.count}</span>Veiws</h4>
           <h2>Price: $ ${product.price}</h2>
           <button onclick="addToCart(${product.id},${product.price})" id="addToCart-btn" class="buy-now btn btn-success">add to cart</button>
-          <button id="details-btn" class="btn btn-danger">Details</button>
+          <button onclick="getProductId(${product.id})" id="details-btn" class="btn btn-danger">Details</button>
         </div>
         
       </div>
@@ -47,7 +47,6 @@ let count = 0;
 const addToCart = (id, price) => {
   count = count + 1;
   updatePrice("price", price);
-  // getProductId(id);
   updateTaxAndCharge();
   updateTotal();
   document.getElementById("total-Products").innerText = count;
@@ -112,12 +111,29 @@ const updateTotal = () => {
 
 
 /*................... product details..............  */
+//======get products id =============
+const getProductId = (productId) =>{
+  const idUrl = `https://fakestoreapi.com/products/${productId}`;
+  fetch(idUrl)
+  .then(res => res.json())
+  .then(data => showProductDetails(data));
+};
 
-// const getProductId = (productId) =>{
-//   const idUrl = `https://fakestoreapi.com/${productId}`;
-//   fetch(idUrl)
-//   .then(res => res.json())
-//   .then(data => console.log(data));
-// }
+
+// ======show UI products details===============
+const showProductDetails = (products) => {
+    const ProductDetails = document.getElementById("products-details");
+    const div = document.createElement("div");
+    div.classList.add("details-item")
+    div.innerHTML = `
+      <h3>${products.title}</h3>
+      <p>${products.description}</p>
+      `;
+    ProductDetails.textContent = '';
+    ProductDetails.appendChild(div);
+  
+}
+
+
 
 
