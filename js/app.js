@@ -63,16 +63,20 @@ const getInputValue = (id) => {
 /* ..............Update main price ............ */
 const updatePrice = (id, value) => {
   const convertedOldPrice = getInputValue(id);
-  const convertPrice = parseFloat(value).toFixed(2);
+  const convertPrice = convertedOldPrice.toFixed(2);
   const convertedNumber = parseFloat(convertPrice);
-  const total = convertedOldPrice + convertedNumber;
-  document.getElementById(id).innerText = Math.abs(total);
+  const total = convertedNumber + value;
+  const totalFixed = total.toFixed(2);
+  const totalParse = parseFloat(totalFixed)
+  document.getElementById(id).innerText = Math.abs(totalParse);
 };
 
 
 /* .......................Set innerText function..................... */
 const setInnerText = (id, value) => {
-  document.getElementById(id).innerText = Math.abs(value);
+  const fixedTaxFloating = value.toFixed(2);
+  const convertFixedFloating = parseFloat(fixedTaxFloating);
+  document.getElementById(id).innerText = Math.abs(convertFixedFloating);
 };
 
 
@@ -99,5 +103,7 @@ const updateTotal = () => {
   const grandTotal =
     getInputValue("price") + getInputValue("delivery-charge") +
     getInputValue("total-tax");
-  document.getElementById("total").innerText = grandTotal;
+  const grandTotalDacimal = grandTotal.toFixed(2);
+  const grandTotalFloat = parseFloat(grandTotalDacimal)
+  document.getElementById("total").innerText = grandTotalFloat;
 };
