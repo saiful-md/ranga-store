@@ -19,7 +19,7 @@ const showProducts = (products) => {
     const div = document.createElement("div");
     div.classList.add("product",);
     div.innerHTML = `
-      <div class="single-product">
+      <div class="single-product ">
 
         <div>
           <img class="product-image" src=${product.image}></img>
@@ -27,8 +27,8 @@ const showProducts = (products) => {
         <div class="single-product-info">
           <h3>${product.title}</h3>
           <p>Category: ${product.category}</p>
-          <h4>Total Rating:<span class="my-style">${product.rating.count}</h4>
-          <h4> Average Rating:<span class="my-style">${product.rating.rate}</span></h4>
+          <h4> <span class="my-style"><i class="far fa-star"></i> ${product.rating.rate}  <br>  </span>
+          <span class="my-style"><i class="fas fa-users"></i> ${product.rating.count}</span>Veiws</h4>
           <h2>Price: $ ${product.price}</h2>
           <button onclick="addToCart(${product.id},${product.price})" id="addToCart-btn" class="buy-now btn btn-success">add to cart</button>
           <button id="details-btn" class="btn btn-danger">Details</button>
@@ -47,7 +47,7 @@ let count = 0;
 const addToCart = (id, price) => {
   count = count + 1;
   updatePrice("price", price);
-
+  // getProductId(id);
   updateTaxAndCharge();
   updateTotal();
   document.getElementById("total-Products").innerText = count;
@@ -109,3 +109,15 @@ const updateTotal = () => {
   const grandTotalFloat = parseFloat(grandTotalDacimal)
   document.getElementById("total").innerText = grandTotalFloat;
 };
+
+
+/*................... product details..............  */
+
+// const getProductId = (productId) =>{
+//   const idUrl = `https://fakestoreapi.com/${productId}`;
+//   fetch(idUrl)
+//   .then(res => res.json())
+//   .then(data => console.log(data));
+// }
+
+

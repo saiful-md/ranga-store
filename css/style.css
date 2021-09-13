@@ -56,15 +56,20 @@ body {
   padding: 5px;
 }
 
+.far.fa-star,
+.fas.fa-users {
+  color: tomato;
+}
+
 .product {
-  /* padding: 10px; */
+  border: 1px solid tomato;
   transition: 0.6s;
 }
 
 .product:hover {
   box-shadow: 4px 4px 7px gray;
-  /* border-radius: 10px; */
-  border: 1px solid tomato;
+
+
 }
 
 .product-image {
